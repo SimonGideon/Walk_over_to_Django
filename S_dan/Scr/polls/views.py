@@ -9,6 +9,11 @@ def index(request):
 
 def contacts(request):
     return render(request, "contacts.html", {})
-def about(request):
-    return render(request, 'about.html', {})
 
+
+def about(request):
+    my_context = {
+        "my_text": "This is about me",
+        "my_number": 123
+    }
+    return render(request, 'about.html', {})
