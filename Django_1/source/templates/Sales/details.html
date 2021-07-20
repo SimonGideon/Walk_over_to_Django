@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+</head>
+
+{% block content %}
+<h1>{{ object.title }}</h1>
+
+<p>{% if object.description != None and object.description != '' %}{{ object.description }}{% else %} Description Comming Soon{% endif %}</p>
+<body>
+{{ object.title }}
+</body>
+{% endblock %}
+</html>

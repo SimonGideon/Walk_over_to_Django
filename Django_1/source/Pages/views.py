@@ -8,6 +8,10 @@ def home_view(request):
 
 
 def contact_view(request):
+    context: {
+        "my_text": "This is Kenya",
+        "my_list": [12132,24434,354545,34545]
+    }
     return render(request, "contact.html", {})
 
 
