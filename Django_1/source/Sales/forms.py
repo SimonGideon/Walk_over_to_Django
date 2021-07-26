@@ -8,5 +8,7 @@ class SForm(forms.ModelForm):
         fields = [
             'title',
             'description',
-            'price'
+            'price',
+            'summary',
+            'featured',
         ]
