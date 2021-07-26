@@ -8,7 +8,9 @@ class SForm(forms.ModelForm):
         fields = [
             'title',
             'description',
-            'price',
-            'summary',
-            'featured',
+            'price'
         ]
+class RawSalesForm(forms.Form):
+    title = forms.CharField()
+    description = forms.CharField()
+    price = forms.DecimalField()

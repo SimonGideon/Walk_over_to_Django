@@ -1,8 +1,8 @@
 {% extends 'base_page.html'%}
 {% block content %}
 
-<form action='http://www.google.com/search/' method="GET"> {% csrf_token %}
-    <input type="text" name='q' placeholder="Your q">
+<form action='.' method="POST"> {% csrf_token %}
+    {{ form.as_p }}
     <input type="submit" value="save"/>
 </form>
 
