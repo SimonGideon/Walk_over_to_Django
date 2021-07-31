@@ -8,7 +8,6 @@ class SForm(forms.ModelForm):
         fields = [
             'title',
             'description',
-            'price'
         ]
 class RawSalesForm(forms.Form):
     title = forms.CharField()
