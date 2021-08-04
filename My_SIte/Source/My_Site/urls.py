@@ -21,9 +21,9 @@ from Polls import views
 app_name = 'Polls'
 urlpatterns = [
     path('', year_archive, name='year_archive'),
-    path('index/', views.index),
-    path('specifics<int:question_id>/', views.detail, name='detail'),
-    path('<int:question_id>/', views.details, name='details'),
+    path('index/', views.IndexViews),
+    path('details/', views.DetailView),
+    path('<int:question_id>/', views.detail, name='detail'),
     path('<int:question_id>/results/', views.results, name='results'),
     path('<int:question_id>/vote/', views.vote, name='vote'),
     path('<int:question_id>/vote/', views.vote, name='vote'),
