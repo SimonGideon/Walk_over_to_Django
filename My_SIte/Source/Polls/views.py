@@ -9,6 +9,29 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from .models import Choice, Question
+from django.urls import reverse
+from django.views import generic
+
+
+class IndexVies(generic.ListView):
+    template_name = 'index.html'
+    context_object_name = 'latest_question_list'
+
+    def get_queryset(self):
+        """Returns the last five published question"""
+        return Question.objects.order_by('-pub_date')[:5]
+
+
+class DetailView(generic.DetailView):
+    model = Question
+    template_name = 'detail.html'
+
+
+class ResultsView(generic.DetailView):
+    model = Question
+    template_name = 'results.html'
+
+
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
@@ -21,8 +44,7 @@ def vote(request, question_id):
     else:
         selected_choice.votes += 1
         selected_choice.save()
-        return  HttpResponseRedirect(reverse('Polls:results', args=(question.id,)))
-
+        return HttpResponseRedirect(reverse('Polls:results', args=(question.id,)))
 
 
 # Create your views here.
@@ -32,26 +54,6 @@ def detail(request, question_id):
     except Question.DoesNotExist:
         raise Http404("Question does not exist")
     return render(request, 'detail.html', {'question': question})
-
-
-def index(request):
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    template = loader.get_template('index.html')
-    context = {
-        'latest_question_list': latest_question_list,
-    }
-
-    """output = ','.join([q.question_text for q in latest_question_list])"""
-    return render(request, 'index.html', context)
-
-
-def details(request, question_id):
-    try:
-        question = Question.objects.get(pk=question_id)
-    except Question.DoesNotExist:
-        raise Http404("Question Does not exist")
-    return render(request, 'detail.html', {'question': question})
-    return HttpResponse("You're looking at the question%s" % question_id)
 
 
 def results(request, question_id):
