@@ -13,13 +13,8 @@ from django.urls import reverse
 from django.views import generic
 
 
-class IndexViews(generic.ListView):
-    template_name = 'index.html'
-    context_object_name = 'latest_question_list'
-
-    def get_queryset(self):
-        """Returns the last five published question"""
-        return Question.objects.order_by('-pub_date')[:5]
+def IndexViews(request):
+    return render(request, 'index.html', {})
 
 
 class DetailView(generic.DetailView):
