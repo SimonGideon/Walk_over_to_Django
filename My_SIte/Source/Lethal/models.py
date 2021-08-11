@@ -8,8 +8,25 @@ class Musician(models.Model):
     instrument = models.CharField(max_length=100)
 
 
+class Person(models.Model):
+    SHIRT_SIZES = (
+        ('S', 'Small'),
+        ('M', 'Medium'),
+        ('L', 'Large'),
+    )
+    name = models.CharField(max_length=60, null=True)
+    shirt_size = models.CharField
+
+
 class Album(models.Model):
     artist = models.ForeignKey(Musician, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     release_date = models.DateField()
     num_starts = models.IntegerField()
+    YEAR_OF_RELEASE = [
+        ('FR', 'Freshmen'),
+        ('SO', 'Sophomore'),
+        ('JR', 'Junior'),
+        ('SR', 'Senior'),
+        ('GR', 'Graduate'),
+    ]
