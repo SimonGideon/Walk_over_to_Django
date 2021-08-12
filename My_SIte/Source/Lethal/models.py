@@ -30,3 +30,16 @@ class Album(models.Model):
         ('SR', 'Senior'),
         ('GR', 'Graduate'),
     ]
+
+
+class Fruit(models.Model):
+    name = models.CharField(max_length=100, primary_key=True)
+
+
+class Manufacturer(models.Model):
+    pass
+
+
+class Car(models.Model):
+    manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
+# one-to-one relationshipwqre
