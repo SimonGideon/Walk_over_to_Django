@@ -67,10 +67,23 @@ class Membership(models.Model):
 
 
 class Place(models.Model):
-    name= models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
     address = models.CharField(max_length=80)
 
 
 class Restaurant(Place):
     serves_hot_dogs = models.BooleanField(default=False)
     serves_pizza = models.BooleanField(default=False)
+
+
+class Partner(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+
+
+class MyPartner(Partner):
+    class Meta:
+        proxy = True
+
+    def do_something(self):
+        pass
