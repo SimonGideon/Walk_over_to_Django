@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     # own
     'news',
     'Polls',
-    'Lethal'
+    'Lethal',
+    'Myapp'
 ]
 
 MIDDLEWARE = [

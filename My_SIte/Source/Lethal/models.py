@@ -71,19 +71,19 @@ class Place(models.Model):
     address = models.CharField(max_length=80)
 
 
-class Restaurant(Place):
-    serves_hot_dogs = models.BooleanField(default=False)
-    serves_pizza = models.BooleanField(default=False)
-
-
-class Partner(models.Model):
-    first_name = models.CharField(max_length=30)
+class guy(models.Model):
+    firstname = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
 
 
-class MyPartner(Partner):
+class My_guy(guy):
     class Meta:
         proxy = True
 
     def do_something(self):
         pass
+
+
+class Restaurant(Place):
+    serves_hot_dogs = models.BooleanField(default=False)
+    serves_pizza = models.BooleanField(default=False)
