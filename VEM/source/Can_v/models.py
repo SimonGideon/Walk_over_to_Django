@@ -63,3 +63,21 @@ class Book(models.Model):
 class Store(models.Model):
     name = models.CharField(max_length=300)
     books = models.ManyToManyField(Book)
+
+
+class AutoManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(role='A')
+
+
+class EditorManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(role='E')
+
+class Person(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    role = models.CharField(max_length=1, choices=[('A', ('Author')), ('E', ('Editor'))])
+    people = models.Manager()
+
+    editors = EditorManager()
