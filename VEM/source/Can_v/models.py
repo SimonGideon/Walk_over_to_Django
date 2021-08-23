@@ -1,7 +1,19 @@
 from django.db import models
+from django import transaction
 
 
 # Create your models here.
+
+@transaction.non_automatic_requests
+def my_view(request):
+    do_stuff()
+
+
+@transaction.non_automatic_requests(using='other')
+def my_other_view(request):
+    do_stuff_on_the_database()
+
+
 class Blog(models.Model):
     name = models.CharField(max_length=100)
     tagline = models.TextField()
@@ -73,6 +85,7 @@ class AutoManager(models.Manager):
 class EditorManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(role='E')
+
 
 class Person(models.Model):
     first_name = models.CharField(max_length=50)
