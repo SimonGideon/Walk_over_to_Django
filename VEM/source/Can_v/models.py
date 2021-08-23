@@ -37,11 +37,19 @@ class Dog(models.Model):
     name = models.CharField(max_length=200)
     data = models.JSONField(null=True)
 
-
     def __str__(self):
-    return self.name
+        return self.name
 
-class Entry(models.Model):
+
+class Entry_(models.Model):
     object = models.Manager()
-    entries = EntryManager()
+
+
+
+class EntryDetails(models.Model):
+    entry = models.OneToOneField(Entry, on_delete=models.CASCADE)
+    details = models.TextField()
+
+
+ed = EntryDetails.objects.get(id=2)
 
