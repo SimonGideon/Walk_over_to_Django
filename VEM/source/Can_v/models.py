@@ -3,6 +3,19 @@ from django import transaction
 
 
 # Create your models here.
+@transaction.atomic
+def viewfunc(request):
+    create_parent()
+    try:
+        with transaction.atomic():
+            generate_relationship()
+    except IntegrityError:
+        handle_exception()
+    add_children()
+    do_stuff()
+    with transaction.atomic():
+        do_more_stuff()
+
 
 @transaction.non_automatic_requests
 def my_view(request):
@@ -90,7 +103,7 @@ class EditorManager(models.Manager):
 class Person(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    role = models.CharField(max_length=1, choices=[('A', ('Author')), ('E', ('Editor'))])
+    role = models.CharField(max_length=1, choices=[('A', 'Author'), ('E', 'Editor')])
     people = models.Manager()
 
     editors = EditorManager()
