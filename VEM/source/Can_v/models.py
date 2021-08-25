@@ -3,6 +3,33 @@ from django import transaction
 
 
 # Create your models here.
+class MyManager(models.Model):
+    def get_queryset(self):
+        qs = CustomQuerySet(self.model)
+        if self._db is not None:
+            qs = qs.using(self.db)
+        return qs
+
+
+class MultiDBModelAdmin(admin.ModelAdmin):
+    using = 'other'
+
+    def save_model(self, request, obj, form, change):
+        obj.save(using=self.using)
+
+    def delete_model(self, request, obj):
+        obj.delete(using=self.using)
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).using(self.using)
+
+    def formfield_for_foreignkey(self, db_field, requst, **kwargs):
+        return super().formfield_for_foreingkey(db_field, request, using=self.using, **kwargs)
+
+    def formfiels_for_manytomany(self, db_field, request, **kwargs):
+        return super().formfiels_for_manytomany(db_field, request, using=self.using, **kwargs)
+
+
 @transaction.atomic
 def viewfunc(request):
     create_parent()
