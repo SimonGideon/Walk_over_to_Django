@@ -6,7 +6,7 @@ import random
 # Create your models here.
 
 class AuthRouter:
-    route_app_labels = {'auth', 'contenttpes'}
+    route_app_labels = {'auth', 'contenttypes'}
 
     def deb_for_read(self, model, **hints):
         if model._meta.app_label in self.route_app_labels:
