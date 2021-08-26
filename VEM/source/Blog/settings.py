@@ -98,8 +98,10 @@ DATABASES = {
     },
     'replica2': {
         'NAME': 'replica2_name',
-        'ENGINE': 'django.db.backend.mysql'
-    }
+        'ENGINE': 'django.db.backend.mysql',
+        'USER': 'mysql_user',
+        'PASSWORD': 'bacon',
+    },
 }
 
 
