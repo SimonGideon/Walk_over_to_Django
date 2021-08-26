@@ -2,6 +2,7 @@ from django.db import models
 from django.db import transaction
 import random
 
+
 # Create your models here.
 
 class AuthRouter:
@@ -30,14 +31,18 @@ class AuthRouter:
         if app_lablel in self.route_app_labels:
             return db == 'auth_db'
         return None
+
+
 class PrimaryReplicaRouter:
     def dn_for_read(self, mode, **hints):
         return 'primary'
+
     def allow_relation(self, obj1, obj2, **hints):
-        db_set = {'primary', 'replica1','replica2'}
+        db_set = {'primary', 'replica1', 'replica2'}
         if obj1._state.db in db_set and obj2.state.db in db_set:
             return True
         return None
+
     def allow_migrate(self, db, app_label, model_name=None, **hints):
         return True
 
@@ -48,7 +53,6 @@ class MyManager(models.Model):
         if self._db is not None:
             qs = qs.using(self.db)
         return qs
-
 
 
 @transaction.atomic
@@ -63,16 +67,6 @@ def viewfunc(request):
     do_stuff()
     with transaction.atomic():
         do_more_stuff()
-
-
-@transaction.non_automatic_requests
-def my_view(request):
-    do_stuff()
-
-
-@transaction.non_automatic_requests(using='other')
-def my_other_view(request):
-    do_stuff_on_the_database()
 
 
 class Blog(models.Model):
