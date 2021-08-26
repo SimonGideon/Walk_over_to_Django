@@ -1,8 +1,37 @@
 from django.db import models
-from django import transaction
+from django.db import transaction
 
 
 # Create your models here.
+
+class AuthRouter:
+    route_app_labels = {'auth', 'contenttpes'}
+
+    def deb_for_read(self, model, **hints):
+        if model._meta.app_label in self.route_app_labels:
+            return 'auth_db'
+        return None
+
+    def db_for_write(self, model, **hints):
+        if model._meta.app_label in self.route_app_labels:
+            return 'auth_db'
+        return None
+
+    def allow_relation(self, obj1, obj2, **hints):
+        if (
+                obj1._meta.app in self.route_app_labels or
+                obj2._meta.app_label in self.route_app_labels
+
+        ):
+            return True
+        return None
+
+    def allow_migrate(self, db, app_lablel, model_name=None, **hints):
+        if app_lablel in self.route_app_labels:
+            return db == 'auth_db'
+        return None
+
+
 class MyManager(models.Model):
     def get_queryset(self):
         qs = CustomQuerySet(self.model)
@@ -10,24 +39,6 @@ class MyManager(models.Model):
             qs = qs.using(self.db)
         return qs
 
-
-class MultiDBModelAdmin(admin.ModelAdmin):
-    using = 'other'
-
-    def save_model(self, request, obj, form, change):
-        obj.save(using=self.using)
-
-    def delete_model(self, request, obj):
-        obj.delete(using=self.using)
-
-    def get_queryset(self, request):
-        return super().get_queryset(request).using(self.using)
-
-    def formfield_for_foreignkey(self, db_field, requst, **kwargs):
-        return super().formfield_for_foreingkey(db_field, request, using=self.using, **kwargs)
-
-    def formfiels_for_manytomany(self, db_field, request, **kwargs):
-        return super().formfiels_for_manytomany(db_field, request, using=self.using, **kwargs)
 
 
 @transaction.atomic
