@@ -75,9 +75,30 @@ WSGI_APPLICATION = 'Blog.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'default': {},
+    'auth_db': {
+        'NAME': 'auth_db_name',
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'USER': 'mysql_user',
+        'PASSWORD': 'swordfish',
+
+    },
+    'primary': {
+        'NAME': 'primary_name',
+        'ENGINE': 'django.db.backends.mysql',
+        'USER': 'mysql_user',
+        'PASSWORD': 'spam',
+    },
+    'replica1': {
+        'NAME': 'replical_name',
+        'ENGINE': 'django.db.backend.mysql',
+        'USER': 'mysql_user',
+        'PASSWORD': 'eggs',
+
+    },
+    'replica2': {
+        'NAME': 'replica2_name',
+        'ENGINE': 'django.db.backend.mysql'
     }
 }
 
