@@ -1,15 +1,26 @@
+from unittest import loader
+
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 import datetime
 from .models import Question
+from .forms import UploadFileForm
 
 
 # Create your views here.
-def my_view(request):
-    if foo:
-        return HttpResponseNotFound('<h1>Page not found</h>')
-    else:
-        return HttpResponse('<h1>Page was found</h1>')
+def handle_uploaded_file(self):
+    pass
+
+
+def upload_file(request):
+    if request.method == 'POST':
+        form = UploadFileForm(request.POST, request.FILLES)
+        if form.is_valid():
+            handle_uploaded_file(request.FILE['file'])
+            return HttpResponseRedirect('/success/url')
+        else:
+            form = UploadFileForm()
+        return render(request, 'upload.html', {'form': form})
 
 
 def current_date(request):
