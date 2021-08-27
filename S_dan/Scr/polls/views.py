@@ -1,14 +1,22 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 import datetime
 from .models import Question
 
 
 # Create your views here.
+def my_view(request):
+    if foo:
+        return HttpResponseNotFound('<h1>Page not found</h>')
+    else:
+        return HttpResponse('<h1>Page was found</h1>')
+
+
 def current_date(request):
     now = datetime.datetime.now()
-    html = "<html><body> It is now %s,</body></html>"% now
+    html = "<html><body> It is now %s,</body></html>" % now
     return HttpResponse
+
 
 def index(request):
     latest_question = Question.objects.order_by('_pub_date')[:5]
