@@ -1,0 +1,27 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'Dev/My_Site/Polls/static/Polls/styles.css' % }">
+{% if latest_question_list %}
+<ul>
+    {% for question in latest_question_list %}
+        <li><a href="{% url 'Polls:detail' question.id %}" > {{ question.question_text }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+<body>
+<label for = "Food stuffs">
+    choose your food:
+<label/>
+    <select id="Food stuffs"">
+    <optgroup label="Supplement of kuku">
+        <option>Chips</option>
+        <option>Ugali</option>
+        <option>Ugali</option>
+    </optgroup>
+    <optgroup label="Suplement of Ugali">
+        <option>Kuku</option>
+        <option>Vegetables </option>
+        <option>Omena</option>
+    </optgroup>
+</body>
