@@ -44,12 +44,12 @@
       <div class="row">
         <div class="col-md-8">
             {% if messages %}
-            {% for messages in messages %}
-            <div class="alert-{{ message.tags }}">
-                {{ massages }}
-            </div>
-            {% endfor %}
-
+                {% for messages in messages %}
+                    <div class="alert-{{ message.tags }}">
+                        {{ massages }}
+                    </div>
+                {% endfor %}
+            {% endif %}
 
           {% block content %}{% endblock %}
         </div>
