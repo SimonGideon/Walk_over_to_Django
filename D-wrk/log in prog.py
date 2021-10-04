@@ -1,19 +1,15 @@
 class Login:
-    error = None
-
     def __init__(self, uid, pwd):
-        self.uid = "Admin"
-        self.pwd = "123"
-        Login.error = "Enter valid user"
+        self.id = id
+        self.pwd = pwd
 
-    def authentication(self):
-        if self.uid == logid and self.pwd == logpass:
-            print("Login successful")
+    def check(self, id, pwd):
+        print(self.id)
+        if self.id == id and self.pwd == pwd:
+            print("Log in success")
         else:
-            print(Login.error)
+            print("Log in error")
 
 
-log = Login(""", """)
-logid = input("Enter your password: ")
-
-log.authentication()
+log = Login("admin", "admin")
+log.check(print(input("Enter Log in ID"), input("Enter Passsword: ")))
