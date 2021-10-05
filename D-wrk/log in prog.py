@@ -12,4 +12,4 @@ class Login:
 
 
 log = Login("admin", "admin")
-log.check(print(input("Enter Log in ID"), input("Enter Passsword: ")))
+log.check(print(input("Enter Log in ID"), print(input("Enter Passsword: "))))
