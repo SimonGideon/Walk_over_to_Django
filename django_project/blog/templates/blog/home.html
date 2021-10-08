@@ -14,4 +14,10 @@
           </div>
         </article>
     {% endfor %}
+    {% if is_paginated %}
+        {% if page_obj.has_previous %}
+            <a class="btn"
+        {% endif %}
+
+    {% endif %}
 {% endblock content %}
