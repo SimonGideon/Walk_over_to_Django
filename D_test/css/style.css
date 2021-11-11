@@ -16,3 +16,22 @@
     border-radius: 50%;
     border:10px solid #fff;
 }
+.nav{
+    font-size: 18px;
+    font-family: 'open sans-serif';
+    font-weight: bold;
+}
+.mynav li{
+    margin: 10px;
+    color: #0d6efd !important;
+    border-bottom: 3px solid transparent;
+
+
+}
+
+.mynav li:hover{
+    border-bottom: 3px solid #0d6efd;
+}
+.active a{
+    border-bottom: 3px solid #0d6efd;
+}
