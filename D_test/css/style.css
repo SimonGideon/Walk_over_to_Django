@@ -30,6 +30,10 @@
 
 
 }
+.myicon{
+    transition: 1sec;
+
+}
 
 .mynav li:hover{
     border-bottom: 3px solid #0d6efd;
