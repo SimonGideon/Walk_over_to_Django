@@ -62,8 +62,13 @@ body{
 }
 .hero-image{
     background-image: linear-gradient(rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5)),url("my img2.png");
+        rgba(0, 0, 0, 0.5)), url("C:\Users\user\Documents\Dev\D_test\img\hero.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
