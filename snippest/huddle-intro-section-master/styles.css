@@ -1,0 +1,249 @@
+:root {
+	--font-color: hsl(0, 100%, 100%);
+	--bg-color: hsl(257, 40%, 49%);
+	--default-transition: 0.3s ease-in-out;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: 'Open Sans', sans-serif;
+	color: var(--font-color);
+}
+
+.hero {
+	background-color: var(--bg-color);
+	background-image: url('./assets/images/bg-mobile.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center top;
+	padding: 0 2rem;
+}
+
+.hero__wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.hero__images-container {
+	margin: 0 auto;
+	padding: 2rem 0;
+	max-width: 550px;
+}
+
+.hero__logo {
+	height: 2.25rem;
+	margin-bottom: 4rem;
+}
+
+.hero__mockups {
+	width: 100%;
+}
+
+.image {
+	display: block;
+}
+
+.hero__text-content {
+	margin: 0 auto;
+	max-width: 650px;
+	text-align: center;
+}
+
+.hero__title {
+	margin: 0 0 1rem;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
+	font-size: 1.5em;
+	line-height: 1.8;
+}
+
+.hero__description {
+	margin: 0 0 2rem;
+	font-weight: 400;
+	font-size: 0.9875em;
+	line-height: 1.7;
+}
+
+.hero__button {
+	position: relative;
+	margin: 0 auto;
+	padding: 0.9rem 0;
+	width: 40%;
+	min-width: 200px;
+	border: none;
+	background-color: transparent;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
+	font-size: 0.85em;
+	color: var(--bg-color);
+	cursor: pointer;
+	overflow: hidden;
+	box-shadow: 0 0.25rem 1rem -0.5rem #000;
+	z-index: 1;
+	transition: color var(--default-transition);
+}
+
+.hero__button,
+.hero__button::before {
+	border-radius: 2rem;
+}
+
+.hero__button::before,
+.hero__button::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+.hero__button::before {
+	border: 2px solid var(--font-color);
+}
+
+.hero__button::after {
+	background-color: var(--font-color);
+	opacity: 1;
+	transition: opacity var(--default-transition);
+}
+
+.hero__button:hover {
+	color: var(--font-color);
+}
+
+.hero__button:hover::after {
+	opacity: 0;
+}
+
+.socials {
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+	padding: 5rem 0 3rem;
+	width: 150px;
+}
+
+.socials__icon-container {
+	position: relative;
+	display: block;
+	border-radius: 50%;
+	width: 42px;
+	height: 42px;
+	font-size: 22px;
+	color: var(--font-color);
+	transition: color var(--default-transition);
+}
+
+.socials__icon-container::before,
+.socials__icon-container::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 50%;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	transition: opacity var(--default-transition);
+}
+
+.socials__icon-container::before {
+	border: 1px solid var(--font-color);
+}
+
+.socials__icon-container::after {
+	background-color: var(--font-color);
+	opacity: 0;
+}
+
+.socials__icon-container:hover {
+	color: var(--bg-color);
+}
+
+.socials__icon-container:hover::after {
+	opacity: 1;
+}
+
+.socials__icon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-decoration: none;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+}
+
+.footer {
+	color: #000;
+	margin-top: 5rem;
+}
+
+.attribution {
+	font-size: 0.733em;
+	text-align: center;
+}
+
+.attribution__anchor {
+	color: hsl(228, 45%, 44%);
+}
+
+@media (min-width: 960px) {
+	.hero {
+		background-image: url('./assets/images/bg-desktop.svg');
+		background-size: cover;
+		background-position-x: left;
+	}
+}
+
+@media (min-width: 1100px) {
+	.hero {
+		padding: 2rem 4rem 6rem;
+	}
+
+	.hero__wrapper {
+		flex-flow: row;
+		align-items: center;
+		position: relative;
+		margin: 0 auto;
+		max-width: 1440px;
+		max-height: 1080px;
+	}
+
+	.hero__images-container {
+		flex-basis: 50%;
+		max-width: 50%;
+		padding: 0;
+	}
+
+	.hero__text-content {
+		padding-left: 3rem;
+		padding-top: 3rem;
+		flex-basis: 50%;
+		text-align: left;
+	}
+
+	.hero__button {
+		max-width: 200px;
+	}
+
+	.socials {
+		position: absolute;
+		bottom: -3rem;
+		right: 5rem;
+		padding: 0;
+	}
+}
+
+@media (min-width: 1100px) {
+	.hero__title {
+		font-size: 2em;
+		line-height: 1.7;
+	}
+}
