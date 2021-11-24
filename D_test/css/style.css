@@ -1,3 +1,8 @@
+@media (min-width:768px){
+    .news-input{
+        width: 50%;
+    }
+}
 .nav{
     font-size: 15px;
     font-family: 'open sans-serif';
@@ -41,9 +46,4 @@ body{
     padding: 0;
     height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
-}
-@media (min-width:768px){
-    .news-input{
-        width: 50%;
-    }
 }
