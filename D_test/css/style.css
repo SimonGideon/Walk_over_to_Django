@@ -1,3 +1,8 @@
+body:: before{
+    display: block;
+    content: '';
+    height: 60px;
+}
 @media (min-width:768px){
     .news-input{
         width: 50%;
@@ -48,6 +53,6 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 .learn img{
-    height: 200px;
     width: 200px;
+    height: 400px;
 }
