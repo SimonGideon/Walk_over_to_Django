@@ -1,4 +1,8 @@
 *{padding: 0; margin: 0;}
+.About{
+    margin-top: 100px;
+
+}
 .float{
     width: 80px;
     height: 80px;
@@ -7,10 +11,9 @@
     justify-content: center;
     text-decoration: none;
     position: fixed;
-    right: 40px;
-    bottom:  40px;
+    right: 20px;
+    bottom:  20px;
     transition: background 0.25s;
-    box-shadow: 2px 2px 3px primary;
 }
 .my-float{
     margin-top: 22px;
