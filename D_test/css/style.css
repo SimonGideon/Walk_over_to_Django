@@ -1,22 +1,26 @@
-*{padding: 0; margin: 0;}
+*{padding: 0; margin: 0; box-sizing: border-box;}
 .About{
     margin-top: 100px;
 
 }
 .float{
-    width: 80px;
+    width: 70px;
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     text-decoration: none;
     position: fixed;
     right: 20px;
     bottom:  20px;
     transition: background 0.25s;
+    font-size: 80px;
+    background-color: aliceblue;
+    border-radius: 65px;
 }
 .my-float{
-    margin-top: 22px;
+    margin-top: 5px;
 }
 body:: before{
     display: block;
@@ -31,12 +35,14 @@ body:: before{
     }
 }
 .nav{
-    font-size: 15px;
-    font-family: 'open sans-serif';
-    font-weight: bold;
-    scroll margin-top: 40px;
+    font-size: 20px;
+    font-family: 'Tw Cen MT';
+    top: 0; left: 0; right: 0;
+
 }
 .mynav li{
+    padding: 0;
+    text-transform: capitalize;
     margin: 10px;
     color: #0d6efd !important;
     border-bottom: 3px solid transparent;
@@ -48,13 +54,11 @@ body:: before{
     transition: 1sec;
 
 }
-
+mynav li.active,
 .mynav li:hover{
     border-bottom: 3px solid #0d6efd;
 }
-.active a{
-    border-bottom: 3px solid #0d6efd;
-}
+
 
 .about img{
     border-top-left-radius: 30px;
@@ -78,11 +82,10 @@ body{
     width: 400px;
     height: 400px;
 }
-
-.hero{
+.hero {
     /* Sizing */
-    width: 100vw;
-    height: 100vh;
+    width: auto;
+    height: 110vh;
     
     /* Flexbox stuff */
     display: flex;
@@ -91,9 +94,10 @@ body{
     
     /* Text styles */
     text-align: center;
+    color: white;
     
     /* Background styles */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('https://codetheweb.blog/assets/img/posts/full-image-hero/image.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("img/image.jpg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -110,17 +114,25 @@ body{
     /* Positioning and sizing */
     display: block;
     width: 200px;
+    
     /* Padding and margins */
     padding: 1em;
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
-      /* Text styles */
-    color: black;
+    
+    /* Text styles */
+    color: white;
     text-decoration: none;
     font-size: 1.5em;
     
     /* Border styles */
-    border: 3px solid black;
+    border: 3px solid white;
     border-radius: 20px;
+    
+    /* Background styles */
+    background-color: rgba(147, 112, 219, 0.8);
+}
+html{
+    scroll-behavior: smooth;
 }
