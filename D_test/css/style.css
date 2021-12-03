@@ -1,4 +1,4 @@
-*{padding: 0; margin: 0; box-sizing: border-box;}
+*{padding: 0; margin: 0; box-sizing: border-box; position: relative;}
 .About{
     margin-top: 100px;
 
@@ -25,6 +25,7 @@ body:: before{
     height: 60px;
     margin: 0;
     font-family: sans-serif;
+    position: relative;
 }
 @media (min-width:768px){
     .news-input{
@@ -49,6 +50,7 @@ body:: before{
 }
 .myicon{
     transition: 1sec;
+    word-spacing: 5px;
 
 }
 mynav li.active,
@@ -72,7 +74,7 @@ mynav li.active,
 body{
     margin: o;
     padding: 0;
-    height: 100vh;
+    height: 90vh;
     font-family: Arial, Helvetica, sans-serif;
 }
 .learn img{
@@ -94,7 +96,7 @@ body{
     color: white;
     
     /* Background styles */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("hero2.png");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)), url("hero2.png");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -102,17 +104,18 @@ body{
     webkit-backgroung: cover;
     position: relative;
 }
-.hero h1 {
+.hero h1 h3 {
     /* Text styles */
     font-size: 50px;
     /* Margins */
        margin-top: 0;
        margin-bottom: 0.5em;
+       margin: 10px;
 }
 .hero .btn {
     /* Positioning and sizing */
     display: block;
-    width: 200px;
+    width: 150px;
     
     /* Padding and margins */
     padding: 1em;
@@ -123,15 +126,14 @@ body{
     /* Text styles */
     color: white;
     text-decoration: none;
-    font-size: 1.5em;
+    font-size: 1em;
     
     /* Border styles */
-    border: 3px solid white;
-    border-radius: 20px;
+    border: 1px solid white;
+    border-radius: 15px;
     
     /* Background styles */
-    background-color: rgba(147, 112, 219, 0.8);
+    background-color: transparent;
 }
 html{
     scroll-behavior: smooth;
-}
