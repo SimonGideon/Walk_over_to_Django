@@ -1,7 +1,16 @@
+@import "bootstrap/scss/bootstrap.scss";
+html {
+    scroll-padding-top: 3.5rem;
+    scroll-behavior: smooth;
+}
 *{padding: 0; margin: 0; box-sizing: border-box; position: relative;}
 .About{
     margin-top: 100px;
 
+}
+section {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
 }
 .float{
 position: fixed;
@@ -35,8 +44,8 @@ body:: before{
 .nav{
     font-size: 20px;
     font-family: 'Tw Cen MT';
-    top: 0; left: 0; right: 0;
-
+    padding-top: 6rem + 3.5rem;
+   /* padding-bottom: 6rem;*/
 }
 .mynav li{
     padding: 0;
@@ -135,5 +144,5 @@ body{
     /* Background styles */
     background-color: transparent;
 }
-html{
-    scroll-behavior: smooth;
+
+
