@@ -3,6 +3,10 @@ html {
     scroll-padding-top: 3.5rem;
     scroll-behavior: smooth;
 }
+/*Blog coeoseul*/
+main.blog{
+    background: ;
+}
 *{padding: 0; margin: 0; box-sizing: border-box; position: relative;}
 .About{
     margin-top: 100px;
@@ -143,6 +147,45 @@ body{
     
     /* Background styles */
     background-color: transparent;
+}
+[aria-expanded="false"] > .expanded,
+[aria-expanded="true"] > .collapsed {
+  display: none;
+}
+/*Blog Carousel*/
+main .blog{
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 100vh;
+    width: 100%;
+
+}
+main.blog.blog-post{
+    padding: 6rem;
+}
+main.blog-post.blog-content{
+    display: flex;
+    flex-direction: column;
+    text-align:  center;
+    width: 80%;
+    margin: 3rem 2rem;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+}
+main.blog-content.blog-title{
+    padding: 2rem 0;
+}
+main.blog-content.btn-blog{
+    padding:  7rem 2rem;
+    background: rgb(-sky);
+    margin: 5rem;
+}
+main.blog-content span{
+    display: bolck;
+}
+main.blog.img {
+    max-width:100%;
+    height:auto;
 }
 
 
