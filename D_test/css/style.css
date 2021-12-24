@@ -469,3 +469,7 @@ a {
       .sticky-wrapper.is-sticky .site-navbar .site-menu > li > a:hover, .sticky-wrapper.is-sticky .site-navbar .site-menu > li > a.active {
         color: #007bff !important; }
 
+.card{
+  display: grid;
+  grid-template-columns: 300px;
+}
