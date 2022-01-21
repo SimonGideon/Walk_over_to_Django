@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+</head>
+<body>
+    <h3>SignUp Today for classes</h3>
+    <form action="/signup" method="post">
+        {% csrf_token %}
+        <!-- Username -->
+        <label for=""> Username</label>
+        <input type="text" id="username" name="username" 
+        placeholder="create a username (Only letters and number)" required>
+        <br>
+        <!-- firstname -->
+        <label for=""> First Name</label>
+        <input type="text" id="firstname" name="firstname" 
+        placeholder="Enter firstname (Only letters)" required>
+        <br>
+        <!-- lastname -->
+        <label for=""> Last Name</label>
+        <input type="text" id="lastname" name="lastname" 
+        placeholder="Enter lastname (Only letters)" required>
+        <br>
+        <!-- emailaddress -->
+        <label for=""> Email Address</label>
+        <input type="email" id="emailaddress" name="emailaddress" 
+        placeholder="Enter Email Address (abcde@..com)" required>
+        <br>
+        <!-- password -->
+        <label for=""> Password</label>
+        <input type="password" id="password" name="password" 
+        placeholder="create a password (Pucntuations, letters and number)" required>
+        <br>
+        <!-- confirmpassword -->
+        <label for=""> Confirm Password</label>
+        <input type="password" id="confirmpassword" name="confirmpassword" 
+        placeholder="confirm  your password" required>
+        <br>
+        <!-- sungup button -->
+        <button type="submit">Sign Up</button>
+    </form>
+</body>
+</html>
